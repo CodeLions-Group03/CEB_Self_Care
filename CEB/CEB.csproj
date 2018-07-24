@@ -1,0 +1,1263 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3CD35D41-72A3-43F3-8604-8256A2BA0183}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CEB</RootNamespace>
+    <AssemblyName>CEB</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.SignalR.SystemWeb.2.2.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.6\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.6\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.6\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Bill.aspx" />
+    <Content Include="Contacts.aspx" />
+    <Content Include="CustomError.aspx" />
+    <Content Include="Dashboard.aspx" />
+    <Content Include="EmailConfirm.aspx" />
+    <Content Include="FAQ.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Inbox.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="Notice.aspx" />
+    <Content Include="PasswordReset.aspx" />
+    <Content Include="Profile.aspx" />
+    <Content Include="Register.aspx" />
+    <Content Include="res\css\animate.css" />
+    <Content Include="res\css\style-responsive.css" />
+    <Content Include="res\css\style.css" />
+    <Content Include="res\css\theme.css" />
+    <Content Include="res\css\WelcomeCSS.css" />
+    <Content Include="res\flot\highcharts-more.js" />
+    <Content Include="res\flot\highcharts.js" />
+    <Content Include="res\flot\modules\export-data.js" />
+    <Content Include="res\flot\modules\exporting.js" />
+    <Content Include="res\flot\modules\solid-gauge.js" />
+    <Content Include="res\images\android.jpg" />
+    <Content Include="res\images\ceb.png" />
+    <Content Include="res\images\pay\amex.png" />
+    <Content Include="res\images\pay\ezcash.png" />
+    <Content Include="res\images\pay\hnb.png" />
+    <Content Include="res\images\pay\master.png" />
+    <Content Include="res\images\pay\mcash.png" />
+    <Content Include="res\images\pay\payapp.png" />
+    <Content Include="res\images\pay\sampath.png" />
+    <Content Include="res\images\pay\visa.png" />
+    <Content Include="res\images\pro_pics\default.png" />
+    <Content Include="res\images\welcome\01.jpg" />
+    <Content Include="res\images\welcome\02.jpg" />
+    <Content Include="res\images\welcome\03.jpg" />
+    <Content Include="res\images\welcome\04.jpg" />
+    <Content Include="res\images\welcome\Android.png" />
+    <Content Include="res\images\welcome\bg1.jpg" />
+    <Content Include="res\images\welcome\bg2.jpg" />
+    <Content Include="res\images\welcome\SiteHeader.png" />
+    <Content Include="res\images\welcome\spaceReserve.jpg" />
+    <Content Include="res\js\apps.js" />
+    <Content Include="res\js\DateTime.js" />
+    <Content Include="res\js\EasePack.min.js" />
+    <Content Include="res\js\rAF.js" />
+    <Content Include="res\js\TweenLite.min.js" />
+    <Content Include="res\js\WelcomeAnimation.js" />
+    <Content Include="res\plugins\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="res\plugins\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="res\plugins\bootstrap\css\bootstrap.css" />
+    <Content Include="res\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="res\plugins\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="res\plugins\bootstrap\js\bootstrap.js" />
+    <Content Include="res\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="res\plugins\bootstrap\js\npm.js" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\css\autoFill.bootstrap.css" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\css\autoFill.bootstrap.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\css\autoFill.dataTables.css" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\css\autoFill.dataTables.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\css\autoFill.foundation.css" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\css\autoFill.foundation.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\css\autoFill.jqueryui.css" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\css\autoFill.jqueryui.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\js\autoFill.bootstrap.js" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\js\autoFill.bootstrap.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\js\autoFill.foundation.js" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\js\autoFill.foundation.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\js\autoFill.jqueryui.js" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\js\autoFill.jqueryui.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\js\dataTables.autoFill.js" />
+    <Content Include="res\plugins\DataTables\extensions\AutoFill\js\dataTables.autoFill.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\css\buttons.bootstrap.css" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\css\buttons.bootstrap.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\css\buttons.dataTables.css" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\css\buttons.dataTables.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\css\buttons.foundation.css" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\css\buttons.foundation.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\css\buttons.jqueryui.css" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\css\buttons.jqueryui.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\buttons.bootstrap.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\buttons.bootstrap.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\buttons.colVis.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\buttons.colVis.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\buttons.flash.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\buttons.flash.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\buttons.foundation.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\buttons.foundation.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\buttons.html5.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\buttons.html5.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\buttons.jqueryui.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\buttons.jqueryui.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\buttons.print.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\buttons.print.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\dataTables.buttons.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\dataTables.buttons.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\jszip.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\pdfmake.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\js\vfs_fonts.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\swf\flashExport.swf" />
+    <Content Include="res\plugins\DataTables\extensions\ColReorder\css\colReorder.bootstrap.css" />
+    <Content Include="res\plugins\DataTables\extensions\ColReorder\css\colReorder.bootstrap.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\ColReorder\css\colReorder.dataTables.css" />
+    <Content Include="res\plugins\DataTables\extensions\ColReorder\css\colReorder.dataTables.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\ColReorder\css\colReorder.foundation.css" />
+    <Content Include="res\plugins\DataTables\extensions\ColReorder\css\colReorder.foundation.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\ColReorder\css\colReorder.jqueryui.css" />
+    <Content Include="res\plugins\DataTables\extensions\ColReorder\css\colReorder.jqueryui.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\ColReorder\js\dataTables.colReorder.js" />
+    <Content Include="res\plugins\DataTables\extensions\ColReorder\js\dataTables.colReorder.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\FixedColumns\css\fixedColumns.bootstrap.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedColumns\css\fixedColumns.bootstrap.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedColumns\css\fixedColumns.dataTables.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedColumns\css\fixedColumns.dataTables.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedColumns\css\fixedColumns.foundation.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedColumns\css\fixedColumns.foundation.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedColumns\css\fixedColumns.jqueryui.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedColumns\css\fixedColumns.jqueryui.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedColumns\js\dataTables.fixedColumns.js" />
+    <Content Include="res\plugins\DataTables\extensions\FixedColumns\js\dataTables.fixedColumns.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\FixedHeader\css\fixedHeader.bootstrap.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedHeader\css\fixedHeader.bootstrap.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedHeader\css\fixedHeader.dataTables.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedHeader\css\fixedHeader.dataTables.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedHeader\css\fixedHeader.foundation.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedHeader\css\fixedHeader.foundation.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedHeader\css\fixedHeader.jqueryui.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedHeader\css\fixedHeader.jqueryui.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\FixedHeader\js\dataTables.fixedHeader.js" />
+    <Content Include="res\plugins\DataTables\extensions\FixedHeader\js\dataTables.fixedHeader.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\KeyTable\css\keyTable.bootstrap.css" />
+    <Content Include="res\plugins\DataTables\extensions\KeyTable\css\keyTable.bootstrap.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\KeyTable\css\keyTable.dataTables.css" />
+    <Content Include="res\plugins\DataTables\extensions\KeyTable\css\keyTable.dataTables.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\KeyTable\css\keyTable.foundation.css" />
+    <Content Include="res\plugins\DataTables\extensions\KeyTable\css\keyTable.foundation.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\KeyTable\css\keyTable.jqueryui.css" />
+    <Content Include="res\plugins\DataTables\extensions\KeyTable\css\keyTable.jqueryui.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\KeyTable\js\dataTables.keyTable.js" />
+    <Content Include="res\plugins\DataTables\extensions\KeyTable\js\dataTables.keyTable.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\css\responsive.bootstrap.css" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\css\responsive.bootstrap.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\css\responsive.dataTables.css" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\css\responsive.dataTables.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\css\responsive.foundation.css" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\css\responsive.foundation.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\css\responsive.jqueryui.css" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\css\responsive.jqueryui.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\js\dataTables.responsive.js" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\js\dataTables.responsive.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\js\responsive.bootstrap.js" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\js\responsive.bootstrap.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\js\responsive.foundation.js" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\js\responsive.foundation.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\js\responsive.jqueryui.js" />
+    <Content Include="res\plugins\DataTables\extensions\Responsive\js\responsive.jqueryui.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\RowReorder\css\rowReorder.bootstrap.css" />
+    <Content Include="res\plugins\DataTables\extensions\RowReorder\css\rowReorder.bootstrap.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\RowReorder\css\rowReorder.dataTables.css" />
+    <Content Include="res\plugins\DataTables\extensions\RowReorder\css\rowReorder.dataTables.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\RowReorder\css\rowReorder.foundation.css" />
+    <Content Include="res\plugins\DataTables\extensions\RowReorder\css\rowReorder.foundation.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\RowReorder\css\rowReorder.jqueryui.css" />
+    <Content Include="res\plugins\DataTables\extensions\RowReorder\css\rowReorder.jqueryui.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\RowReorder\js\dataTables.rowReorder.js" />
+    <Content Include="res\plugins\DataTables\extensions\RowReorder\js\dataTables.rowReorder.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Scroller\css\scroller.bootstrap.css" />
+    <Content Include="res\plugins\DataTables\extensions\Scroller\css\scroller.bootstrap.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Scroller\css\scroller.dataTables.css" />
+    <Content Include="res\plugins\DataTables\extensions\Scroller\css\scroller.dataTables.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Scroller\css\scroller.foundation.css" />
+    <Content Include="res\plugins\DataTables\extensions\Scroller\css\scroller.foundation.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Scroller\css\scroller.jqueryui.css" />
+    <Content Include="res\plugins\DataTables\extensions\Scroller\css\scroller.jqueryui.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Scroller\js\dataTables.scroller.js" />
+    <Content Include="res\plugins\DataTables\extensions\Scroller\js\dataTables.scroller.min.js" />
+    <Content Include="res\plugins\DataTables\extensions\Select\css\select.bootstrap.css" />
+    <Content Include="res\plugins\DataTables\extensions\Select\css\select.bootstrap.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Select\css\select.dataTables.css" />
+    <Content Include="res\plugins\DataTables\extensions\Select\css\select.dataTables.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Select\css\select.foundation.css" />
+    <Content Include="res\plugins\DataTables\extensions\Select\css\select.foundation.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Select\css\select.jqueryui.css" />
+    <Content Include="res\plugins\DataTables\extensions\Select\css\select.jqueryui.min.css" />
+    <Content Include="res\plugins\DataTables\extensions\Select\js\dataTables.select.js" />
+    <Content Include="res\plugins\DataTables\extensions\Select\js\dataTables.select.min.js" />
+    <Content Include="res\plugins\DataTables\media\css\dataTables.bootstrap.css" />
+    <Content Include="res\plugins\DataTables\media\css\dataTables.bootstrap.min.css" />
+    <Content Include="res\plugins\DataTables\media\css\dataTables.foundation.css" />
+    <Content Include="res\plugins\DataTables\media\css\dataTables.foundation.min.css" />
+    <Content Include="res\plugins\DataTables\media\css\dataTables.jqueryui.css" />
+    <Content Include="res\plugins\DataTables\media\css\dataTables.jqueryui.min.css" />
+    <Content Include="res\plugins\DataTables\media\css\jquery.dataTables.css" />
+    <Content Include="res\plugins\DataTables\media\css\jquery.dataTables.min.css" />
+    <Content Include="res\plugins\DataTables\media\css\jquery.dataTables_themeroller.css" />
+    <Content Include="res\plugins\DataTables\media\images\favicon.ico" />
+    <Content Include="res\plugins\DataTables\media\images\sort_asc.png" />
+    <Content Include="res\plugins\DataTables\media\images\sort_asc_disabled.png" />
+    <Content Include="res\plugins\DataTables\media\images\sort_both.png" />
+    <Content Include="res\plugins\DataTables\media\images\sort_desc.png" />
+    <Content Include="res\plugins\DataTables\media\images\sort_desc_disabled.png" />
+    <Content Include="res\plugins\DataTables\media\js\dataTables.bootstrap.js" />
+    <Content Include="res\plugins\DataTables\media\js\dataTables.bootstrap.min.js" />
+    <Content Include="res\plugins\DataTables\media\js\dataTables.foundation.js" />
+    <Content Include="res\plugins\DataTables\media\js\dataTables.foundation.min.js" />
+    <Content Include="res\plugins\DataTables\media\js\dataTables.jqueryui.js" />
+    <Content Include="res\plugins\DataTables\media\js\dataTables.jqueryui.min.js" />
+    <Content Include="res\plugins\DataTables\media\js\jquery.dataTables.js" />
+    <Content Include="res\plugins\DataTables\media\js\jquery.dataTables.min.js" />
+    <Content Include="res\plugins\DataTables\media\js\jquery.js" />
+    <Content Include="res\plugins\font-awesome\css\font-awesome.css" />
+    <Content Include="res\plugins\font-awesome\css\font-awesome.min.css" />
+    <Content Include="res\plugins\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="res\plugins\jquery-ui\external\globalize.culture.de-DE.js" />
+    <Content Include="res\plugins\jquery-ui\external\globalize.culture.ja-JP.js" />
+    <Content Include="res\plugins\jquery-ui\external\globalize.js" />
+    <Content Include="res\plugins\jquery-ui\external\jquery.mousewheel.js" />
+    <Content Include="res\plugins\jquery-ui\external\jshint.js" />
+    <Content Include="res\plugins\jquery-ui\external\qunit.css" />
+    <Content Include="res\plugins\jquery-ui\external\qunit.js" />
+    <Content Include="res\plugins\jquery-ui\Gruntfile.js" />
+    <Content Include="res\plugins\jquery-ui\jquery-1.10.2.js" />
+    <Content Include="res\plugins\jquery-ui\themes\base\images\animated-overlay.gif" />
+    <Content Include="res\plugins\jquery-ui\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery-ui.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.accordion.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.all.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.base.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.button.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.core.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.dialog.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.menu.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.resizable.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.selectable.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.slider.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.spinner.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.tabs.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.theme.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\jquery.ui.tooltip.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\images\animated-overlay.gif" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\images\ui-icons_222222_256x240.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\images\ui-icons_454545_256x240.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\images\ui-icons_888888_256x240.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery-ui.min.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery.ui.accordion.min.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery.ui.autocomplete.min.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery.ui.button.min.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery.ui.core.min.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery.ui.datepicker.min.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery.ui.dialog.min.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery.ui.menu.min.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery.ui.progressbar.min.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery.ui.resizable.min.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery.ui.selectable.min.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery.ui.slider.min.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery.ui.spinner.min.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery.ui.tabs.min.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="res\plugins\jquery-ui\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery-ui-i18n.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-af.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-ar-DZ.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-ar.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-az.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-be.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-bg.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-bs.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-ca.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-cs.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-cy-GB.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-da.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-de.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-el.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-en-AU.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-en-GB.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-en-NZ.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-eo.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-es.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-et.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-eu.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-fa.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-fi.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-fo.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-fr-CA.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-fr-CH.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-fr.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-gl.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-he.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-hi.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-hr.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-hu.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-hy.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-id.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-is.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-it.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-ja.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-ka.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-kk.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-km.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-ko.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-ky.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-lb.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-lt.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-lv.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-mk.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-ml.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-ms.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-nb.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-nl-BE.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-nl.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-nn.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-no.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-pl.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-pt-BR.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-pt.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-rm.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-ro.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-ru.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-sk.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-sl.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-sq.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-sr-SR.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-sr.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-sv.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-ta.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-th.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-tj.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-tr.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-uk.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-vi.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-zh-CN.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-zh-HK.js" />
+    <Content Include="res\plugins\jquery-ui\ui\i18n\jquery.ui.datepicker-zh-TW.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery-ui.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.accordion.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.autocomplete.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.button.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.core.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.datepicker.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.dialog.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.draggable.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.droppable.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.effect-blind.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.effect-bounce.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.effect-clip.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.effect-drop.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.effect-explode.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.effect-fade.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.effect-fold.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.effect-highlight.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.effect-pulsate.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.effect-scale.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.effect-shake.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.effect-slide.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.effect-transfer.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.effect.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.menu.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.mouse.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.position.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.progressbar.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.resizable.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.selectable.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.slider.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.sortable.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.spinner.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.tabs.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.tooltip.js" />
+    <Content Include="res\plugins\jquery-ui\ui\jquery.ui.widget.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery-ui-i18n.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-af.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-ar-DZ.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-ar.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-az.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-be.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-bg.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-bs.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-ca.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-cs.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-cy-GB.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-da.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-de.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-el.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-en-AU.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-en-GB.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-en-NZ.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-eo.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-es.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-et.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-eu.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-fa.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-fi.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-fo.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-fr-CA.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-fr-CH.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-fr.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-gl.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-he.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-hi.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-hr.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-hu.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-hy.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-id.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-is.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-it.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-ja.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-ka.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-kk.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-km.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-ko.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-ky.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-lb.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-lt.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-lv.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-mk.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-ml.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-ms.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-nb.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-nl-BE.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-nl.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-nn.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-no.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-pl.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-pt-BR.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-pt.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-rm.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-ro.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-ru.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-sk.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-sl.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-sq.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-sr-SR.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-sr.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-sv.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-ta.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-th.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-tj.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-tr.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-uk.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-vi.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-zh-CN.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-zh-HK.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\i18n\jquery.ui.datepicker-zh-TW.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery-ui.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.accordion.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.autocomplete.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.button.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.core.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.datepicker.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.dialog.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.draggable.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.droppable.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.effect-blind.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.effect-bounce.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.effect-clip.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.effect-drop.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.effect-explode.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.effect-fade.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.effect-fold.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.effect-highlight.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.effect-pulsate.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.effect-scale.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.effect-shake.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.effect-slide.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.effect-transfer.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.effect.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.menu.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.mouse.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.position.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.progressbar.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.resizable.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.selectable.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.slider.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.sortable.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.spinner.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.tabs.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.tooltip.min.js" />
+    <Content Include="res\plugins\jquery-ui\ui\minified\jquery.ui.widget.min.js" />
+    <Content Include="res\plugins\jquery\jquery-1.8.2.min.js" />
+    <Content Include="res\plugins\jquery\jquery-1.9.1.js" />
+    <Content Include="res\plugins\jquery\jquery-1.9.1.min.js" />
+    <Content Include="res\plugins\jquery\jquery-migrate-1.1.0.js" />
+    <Content Include="res\plugins\jquery\jquery-migrate-1.1.0.min.js" />
+    <Content Include="res\plugins\pace\pace.js" />
+    <Content Include="res\plugins\pace\templates\pace-theme-barber-shop.tmpl.css" />
+    <Content Include="res\plugins\pace\templates\pace-theme-big-counter.tmpl.css" />
+    <Content Include="res\plugins\pace\templates\pace-theme-bounce.tmpl.css" />
+    <Content Include="res\plugins\pace\templates\pace-theme-center-atom.tmpl.css" />
+    <Content Include="res\plugins\pace\templates\pace-theme-center-circle.tmpl.css" />
+    <Content Include="res\plugins\pace\templates\pace-theme-center-radar.tmpl.css" />
+    <Content Include="res\plugins\pace\templates\pace-theme-center-simple.tmpl.css" />
+    <Content Include="res\plugins\pace\templates\pace-theme-corner-indicator.tmpl.css" />
+    <Content Include="res\plugins\pace\templates\pace-theme-fill-left.tmpl.css" />
+    <Content Include="res\plugins\pace\templates\pace-theme-flash.tmpl.css" />
+    <Content Include="res\plugins\pace\templates\pace-theme-flat-top.tmpl.css" />
+    <Content Include="res\plugins\pace\templates\pace-theme-loading-bar.tmpl.css" />
+    <Content Include="res\plugins\pace\templates\pace-theme-mac-osx.tmpl.css" />
+    <Content Include="res\plugins\pace\templates\pace-theme-minimal.tmpl.css" />
+    <Content Include="res\plugins\pace\themes\black\pace-theme-barber-shop.css" />
+    <Content Include="res\plugins\pace\themes\black\pace-theme-big-counter.css" />
+    <Content Include="res\plugins\pace\themes\black\pace-theme-bounce.css" />
+    <Content Include="res\plugins\pace\themes\black\pace-theme-center-atom.css" />
+    <Content Include="res\plugins\pace\themes\black\pace-theme-center-circle.css" />
+    <Content Include="res\plugins\pace\themes\black\pace-theme-center-radar.css" />
+    <Content Include="res\plugins\pace\themes\black\pace-theme-center-simple.css" />
+    <Content Include="res\plugins\pace\themes\black\pace-theme-corner-indicator.css" />
+    <Content Include="res\plugins\pace\themes\black\pace-theme-fill-left.css" />
+    <Content Include="res\plugins\pace\themes\black\pace-theme-flash.css" />
+    <Content Include="res\plugins\pace\themes\black\pace-theme-flat-top.css" />
+    <Content Include="res\plugins\pace\themes\black\pace-theme-loading-bar.css" />
+    <Content Include="res\plugins\pace\themes\black\pace-theme-mac-osx.css" />
+    <Content Include="res\plugins\pace\themes\black\pace-theme-minimal.css" />
+    <Content Include="res\plugins\pace\themes\blue\pace-theme-barber-shop.css" />
+    <Content Include="res\plugins\pace\themes\blue\pace-theme-big-counter.css" />
+    <Content Include="res\plugins\pace\themes\blue\pace-theme-bounce.css" />
+    <Content Include="res\plugins\pace\themes\blue\pace-theme-center-atom.css" />
+    <Content Include="res\plugins\pace\themes\blue\pace-theme-center-circle.css" />
+    <Content Include="res\plugins\pace\themes\blue\pace-theme-center-radar.css" />
+    <Content Include="res\plugins\pace\themes\blue\pace-theme-center-simple.css" />
+    <Content Include="res\plugins\pace\themes\blue\pace-theme-corner-indicator.css" />
+    <Content Include="res\plugins\pace\themes\blue\pace-theme-fill-left.css" />
+    <Content Include="res\plugins\pace\themes\blue\pace-theme-flash.css" />
+    <Content Include="res\plugins\pace\themes\blue\pace-theme-flat-top.css" />
+    <Content Include="res\plugins\pace\themes\blue\pace-theme-loading-bar.css" />
+    <Content Include="res\plugins\pace\themes\blue\pace-theme-mac-osx.css" />
+    <Content Include="res\plugins\pace\themes\blue\pace-theme-minimal.css" />
+    <Content Include="res\plugins\pace\themes\green\pace-theme-barber-shop.css" />
+    <Content Include="res\plugins\pace\themes\green\pace-theme-big-counter.css" />
+    <Content Include="res\plugins\pace\themes\green\pace-theme-bounce.css" />
+    <Content Include="res\plugins\pace\themes\green\pace-theme-center-atom.css" />
+    <Content Include="res\plugins\pace\themes\green\pace-theme-center-circle.css" />
+    <Content Include="res\plugins\pace\themes\green\pace-theme-center-radar.css" />
+    <Content Include="res\plugins\pace\themes\green\pace-theme-center-simple.css" />
+    <Content Include="res\plugins\pace\themes\green\pace-theme-corner-indicator.css" />
+    <Content Include="res\plugins\pace\themes\green\pace-theme-fill-left.css" />
+    <Content Include="res\plugins\pace\themes\green\pace-theme-flash.css" />
+    <Content Include="res\plugins\pace\themes\green\pace-theme-flat-top.css" />
+    <Content Include="res\plugins\pace\themes\green\pace-theme-loading-bar.css" />
+    <Content Include="res\plugins\pace\themes\green\pace-theme-mac-osx.css" />
+    <Content Include="res\plugins\pace\themes\green\pace-theme-minimal.css" />
+    <Content Include="res\plugins\pace\themes\orange\pace-theme-barber-shop.css" />
+    <Content Include="res\plugins\pace\themes\orange\pace-theme-big-counter.css" />
+    <Content Include="res\plugins\pace\themes\orange\pace-theme-bounce.css" />
+    <Content Include="res\plugins\pace\themes\orange\pace-theme-center-atom.css" />
+    <Content Include="res\plugins\pace\themes\orange\pace-theme-center-circle.css" />
+    <Content Include="res\plugins\pace\themes\orange\pace-theme-center-radar.css" />
+    <Content Include="res\plugins\pace\themes\orange\pace-theme-center-simple.css" />
+    <Content Include="res\plugins\pace\themes\orange\pace-theme-corner-indicator.css" />
+    <Content Include="res\plugins\pace\themes\orange\pace-theme-fill-left.css" />
+    <Content Include="res\plugins\pace\themes\orange\pace-theme-flash.css" />
+    <Content Include="res\plugins\pace\themes\orange\pace-theme-flat-top.css" />
+    <Content Include="res\plugins\pace\themes\orange\pace-theme-loading-bar.css" />
+    <Content Include="res\plugins\pace\themes\orange\pace-theme-mac-osx.css" />
+    <Content Include="res\plugins\pace\themes\orange\pace-theme-minimal.css" />
+    <Content Include="res\plugins\pace\themes\pace-theme-barber-shop.css" />
+    <Content Include="res\plugins\pace\themes\pace-theme-big-counter.css" />
+    <Content Include="res\plugins\pace\themes\pace-theme-bounce.css" />
+    <Content Include="res\plugins\pace\themes\pace-theme-center-atom.css" />
+    <Content Include="res\plugins\pace\themes\pace-theme-center-circle.css" />
+    <Content Include="res\plugins\pace\themes\pace-theme-center-radar.css" />
+    <Content Include="res\plugins\pace\themes\pace-theme-center-simple.css" />
+    <Content Include="res\plugins\pace\themes\pace-theme-corner-indicator.css" />
+    <Content Include="res\plugins\pace\themes\pace-theme-fill-left.css" />
+    <Content Include="res\plugins\pace\themes\pace-theme-flash.css" />
+    <Content Include="res\plugins\pace\themes\pace-theme-flat-top.css" />
+    <Content Include="res\plugins\pace\themes\pace-theme-loading-bar.css" />
+    <Content Include="res\plugins\pace\themes\pace-theme-mac-osx.css" />
+    <Content Include="res\plugins\pace\themes\pace-theme-minimal.css" />
+    <Content Include="res\plugins\pace\themes\pink\pace-theme-barber-shop.css" />
+    <Content Include="res\plugins\pace\themes\pink\pace-theme-big-counter.css" />
+    <Content Include="res\plugins\pace\themes\pink\pace-theme-bounce.css" />
+    <Content Include="res\plugins\pace\themes\pink\pace-theme-center-atom.css" />
+    <Content Include="res\plugins\pace\themes\pink\pace-theme-center-circle.css" />
+    <Content Include="res\plugins\pace\themes\pink\pace-theme-center-radar.css" />
+    <Content Include="res\plugins\pace\themes\pink\pace-theme-center-simple.css" />
+    <Content Include="res\plugins\pace\themes\pink\pace-theme-corner-indicator.css" />
+    <Content Include="res\plugins\pace\themes\pink\pace-theme-fill-left.css" />
+    <Content Include="res\plugins\pace\themes\pink\pace-theme-flash.css" />
+    <Content Include="res\plugins\pace\themes\pink\pace-theme-flat-top.css" />
+    <Content Include="res\plugins\pace\themes\pink\pace-theme-loading-bar.css" />
+    <Content Include="res\plugins\pace\themes\pink\pace-theme-mac-osx.css" />
+    <Content Include="res\plugins\pace\themes\pink\pace-theme-minimal.css" />
+    <Content Include="res\plugins\pace\themes\purple\pace-theme-barber-shop.css" />
+    <Content Include="res\plugins\pace\themes\purple\pace-theme-big-counter.css" />
+    <Content Include="res\plugins\pace\themes\purple\pace-theme-bounce.css" />
+    <Content Include="res\plugins\pace\themes\purple\pace-theme-center-atom.css" />
+    <Content Include="res\plugins\pace\themes\purple\pace-theme-center-circle.css" />
+    <Content Include="res\plugins\pace\themes\purple\pace-theme-center-radar.css" />
+    <Content Include="res\plugins\pace\themes\purple\pace-theme-center-simple.css" />
+    <Content Include="res\plugins\pace\themes\purple\pace-theme-corner-indicator.css" />
+    <Content Include="res\plugins\pace\themes\purple\pace-theme-fill-left.css" />
+    <Content Include="res\plugins\pace\themes\purple\pace-theme-flash.css" />
+    <Content Include="res\plugins\pace\themes\purple\pace-theme-flat-top.css" />
+    <Content Include="res\plugins\pace\themes\purple\pace-theme-loading-bar.css" />
+    <Content Include="res\plugins\pace\themes\purple\pace-theme-mac-osx.css" />
+    <Content Include="res\plugins\pace\themes\purple\pace-theme-minimal.css" />
+    <Content Include="res\plugins\pace\themes\red\pace-theme-barber-shop.css" />
+    <Content Include="res\plugins\pace\themes\red\pace-theme-big-counter.css" />
+    <Content Include="res\plugins\pace\themes\red\pace-theme-bounce.css" />
+    <Content Include="res\plugins\pace\themes\red\pace-theme-center-atom.css" />
+    <Content Include="res\plugins\pace\themes\red\pace-theme-center-circle.css" />
+    <Content Include="res\plugins\pace\themes\red\pace-theme-center-radar.css" />
+    <Content Include="res\plugins\pace\themes\red\pace-theme-center-simple.css" />
+    <Content Include="res\plugins\pace\themes\red\pace-theme-corner-indicator.css" />
+    <Content Include="res\plugins\pace\themes\red\pace-theme-fill-left.css" />
+    <Content Include="res\plugins\pace\themes\red\pace-theme-flash.css" />
+    <Content Include="res\plugins\pace\themes\red\pace-theme-flat-top.css" />
+    <Content Include="res\plugins\pace\themes\red\pace-theme-loading-bar.css" />
+    <Content Include="res\plugins\pace\themes\red\pace-theme-mac-osx.css" />
+    <Content Include="res\plugins\pace\themes\red\pace-theme-minimal.css" />
+    <Content Include="res\plugins\pace\themes\silver\pace-theme-barber-shop.css" />
+    <Content Include="res\plugins\pace\themes\silver\pace-theme-big-counter.css" />
+    <Content Include="res\plugins\pace\themes\silver\pace-theme-bounce.css" />
+    <Content Include="res\plugins\pace\themes\silver\pace-theme-center-atom.css" />
+    <Content Include="res\plugins\pace\themes\silver\pace-theme-center-circle.css" />
+    <Content Include="res\plugins\pace\themes\silver\pace-theme-center-radar.css" />
+    <Content Include="res\plugins\pace\themes\silver\pace-theme-center-simple.css" />
+    <Content Include="res\plugins\pace\themes\silver\pace-theme-corner-indicator.css" />
+    <Content Include="res\plugins\pace\themes\silver\pace-theme-fill-left.css" />
+    <Content Include="res\plugins\pace\themes\silver\pace-theme-flash.css" />
+    <Content Include="res\plugins\pace\themes\silver\pace-theme-flat-top.css" />
+    <Content Include="res\plugins\pace\themes\silver\pace-theme-loading-bar.css" />
+    <Content Include="res\plugins\pace\themes\silver\pace-theme-mac-osx.css" />
+    <Content Include="res\plugins\pace\themes\silver\pace-theme-minimal.css" />
+    <Content Include="res\plugins\pace\themes\white\pace-theme-barber-shop.css" />
+    <Content Include="res\plugins\pace\themes\white\pace-theme-big-counter.css" />
+    <Content Include="res\plugins\pace\themes\white\pace-theme-bounce.css" />
+    <Content Include="res\plugins\pace\themes\white\pace-theme-center-atom.css" />
+    <Content Include="res\plugins\pace\themes\white\pace-theme-center-circle.css" />
+    <Content Include="res\plugins\pace\themes\white\pace-theme-center-radar.css" />
+    <Content Include="res\plugins\pace\themes\white\pace-theme-center-simple.css" />
+    <Content Include="res\plugins\pace\themes\white\pace-theme-corner-indicator.css" />
+    <Content Include="res\plugins\pace\themes\white\pace-theme-fill-left.css" />
+    <Content Include="res\plugins\pace\themes\white\pace-theme-flash.css" />
+    <Content Include="res\plugins\pace\themes\white\pace-theme-flat-top.css" />
+    <Content Include="res\plugins\pace\themes\white\pace-theme-loading-bar.css" />
+    <Content Include="res\plugins\pace\themes\white\pace-theme-mac-osx.css" />
+    <Content Include="res\plugins\pace\themes\white\pace-theme-minimal.css" />
+    <Content Include="res\plugins\pace\themes\yellow\pace-theme-barber-shop.css" />
+    <Content Include="res\plugins\pace\themes\yellow\pace-theme-big-counter.css" />
+    <Content Include="res\plugins\pace\themes\yellow\pace-theme-bounce.css" />
+    <Content Include="res\plugins\pace\themes\yellow\pace-theme-center-atom.css" />
+    <Content Include="res\plugins\pace\themes\yellow\pace-theme-center-circle.css" />
+    <Content Include="res\plugins\pace\themes\yellow\pace-theme-center-radar.css" />
+    <Content Include="res\plugins\pace\themes\yellow\pace-theme-center-simple.css" />
+    <Content Include="res\plugins\pace\themes\yellow\pace-theme-corner-indicator.css" />
+    <Content Include="res\plugins\pace\themes\yellow\pace-theme-fill-left.css" />
+    <Content Include="res\plugins\pace\themes\yellow\pace-theme-flash.css" />
+    <Content Include="res\plugins\pace\themes\yellow\pace-theme-flat-top.css" />
+    <Content Include="res\plugins\pace\themes\yellow\pace-theme-loading-bar.css" />
+    <Content Include="res\plugins\pace\themes\yellow\pace-theme-mac-osx.css" />
+    <Content Include="res\plugins\pace\themes\yellow\pace-theme-minimal.css" />
+    <Content Include="res\plugins\slimscroll\jquery.slimscroll.js" />
+    <Content Include="res_login\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="res_login\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="res_login\bootstrap\css\bootstrap.css" />
+    <Content Include="res_login\bootstrap\css\bootstrap.min.css" />
+    <Content Include="res_login\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="res_login\bootstrap\js\bootstrap.js" />
+    <Content Include="res_login\bootstrap\js\bootstrap.min.js" />
+    <Content Include="res_login\bootstrap\js\npm.js" />
+    <Content Include="res_login\css\form-elements.css" />
+    <Content Include="res_login\css\style.css" />
+    <Content Include="res_login\font-awesome\css\font-awesome.css" />
+    <Content Include="res_login\font-awesome\css\font-awesome.min.css" />
+    <Content Include="res_login\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="res_login\ico\refresh-botton.png" />
+    <Content Include="res_login\ico\Title_icon.png" />
+    <Content Include="res_login\img\ImageBackground.png" />
+    <Content Include="res_login\js\jquery-1.11.1.js" />
+    <Content Include="res_login\js\jquery-1.11.1.min.js" />
+    <Content Include="res_login\js\jquery.backstretch.js" />
+    <Content Include="res_login\js\jquery.backstretch.min.js" />
+    <Content Include="res_login\js\placeholder.js" />
+    <Content Include="res_login\js\scripts.js" />
+    <Content Include="Index.aspx" />
+    <None Include="Hubs\Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Hubs\Scripts\jquery-3.3.1.js" />
+    <Content Include="Hubs\Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Hubs\Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Hubs\Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Hubs\Scripts\jquery.signalR-2.2.2.js" />
+    <Content Include="Hubs\Scripts\jquery.signalR-2.2.2.min.js" />
+    <Content Include="Settings.aspx" />
+    <Content Include="Usage.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Bill.aspx.cs">
+      <DependentUpon>Bill.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Bill.aspx.designer.cs">
+      <DependentUpon>Bill.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Account.cs" />
+    <Compile Include="Classes\DashboardUser.cs" />
+    <Compile Include="Classes\History.cs" />
+    <Compile Include="Classes\LoginUser.cs" />
+    <Compile Include="Classes\MetalBox.cs" />
+    <Compile Include="Classes\MyMail.cs" />
+    <Compile Include="Classes\MyPanel.cs" />
+    <Compile Include="Classes\MySecurity.cs" />
+    <Compile Include="Classes\Request.cs" />
+    <Compile Include="Contacts.aspx.cs">
+      <DependentUpon>Contacts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contacts.aspx.designer.cs">
+      <DependentUpon>Contacts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomError.aspx.cs">
+      <DependentUpon>CustomError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomError.aspx.designer.cs">
+      <DependentUpon>CustomError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmailConfirm.aspx.cs">
+      <DependentUpon>EmailConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmailConfirm.aspx.designer.cs">
+      <DependentUpon>EmailConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FAQ.aspx.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FAQ.aspx.designer.cs">
+      <DependentUpon>FAQ.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Hubs\DashboardHub.cs" />
+    <Compile Include="Hubs\Startup.cs" />
+    <Compile Include="Inbox.aspx.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inbox.aspx.designer.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CebSelfCare.cs" />
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Notice.aspx.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Notice.aspx.designer.cs">
+      <DependentUpon>Notice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordReset.aspx.cs">
+      <DependentUpon>PasswordReset.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PasswordReset.aspx.designer.cs">
+      <DependentUpon>PasswordReset.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Usage.aspx.cs">
+      <DependentUpon>Usage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usage.aspx.designer.cs">
+      <DependentUpon>Usage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="res\less\bootstrap\alerts.less" />
+    <Content Include="res\less\bootstrap\badges.less" />
+    <Content Include="res\less\bootstrap\bootstrap.less" />
+    <Content Include="res\less\bootstrap\breadcrumbs.less" />
+    <Content Include="res\less\bootstrap\button-groups.less" />
+    <Content Include="res\less\bootstrap\buttons.less" />
+    <Content Include="res\less\bootstrap\carousel.less" />
+    <Content Include="res\less\bootstrap\close.less" />
+    <Content Include="res\less\bootstrap\code.less" />
+    <Content Include="res\less\bootstrap\component-animations.less" />
+    <Content Include="res\less\bootstrap\dropdowns.less" />
+    <Content Include="res\less\bootstrap\forms.less" />
+    <Content Include="res\less\bootstrap\glyphicons.less" />
+    <Content Include="res\less\bootstrap\grid.less" />
+    <Content Include="res\less\bootstrap\input-groups.less" />
+    <Content Include="res\less\bootstrap\jumbotron.less" />
+    <Content Include="res\less\bootstrap\labels.less" />
+    <Content Include="res\less\bootstrap\list-group.less" />
+    <Content Include="res\less\bootstrap\media.less" />
+    <Content Include="res\less\bootstrap\mixins.less" />
+    <Content Include="res\less\bootstrap\mixins\alerts.less" />
+    <Content Include="res\less\bootstrap\mixins\background-variant.less" />
+    <Content Include="res\less\bootstrap\mixins\border-radius.less" />
+    <Content Include="res\less\bootstrap\mixins\buttons.less" />
+    <Content Include="res\less\bootstrap\mixins\center-block.less" />
+    <Content Include="res\less\bootstrap\mixins\clearfix.less" />
+    <Content Include="res\less\bootstrap\mixins\forms.less" />
+    <Content Include="res\less\bootstrap\mixins\gradients.less" />
+    <Content Include="res\less\bootstrap\mixins\grid-framework.less" />
+    <Content Include="res\less\bootstrap\mixins\grid.less" />
+    <Content Include="res\less\bootstrap\mixins\hide-text.less" />
+    <Content Include="res\less\bootstrap\mixins\image.less" />
+    <Content Include="res\less\bootstrap\mixins\labels.less" />
+    <Content Include="res\less\bootstrap\mixins\list-group.less" />
+    <Content Include="res\less\bootstrap\mixins\nav-divider.less" />
+    <Content Include="res\less\bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="res\less\bootstrap\mixins\opacity.less" />
+    <Content Include="res\less\bootstrap\mixins\pagination.less" />
+    <Content Include="res\less\bootstrap\mixins\panels.less" />
+    <Content Include="res\less\bootstrap\mixins\progress-bar.less" />
+    <Content Include="res\less\bootstrap\mixins\reset-filter.less" />
+    <Content Include="res\less\bootstrap\mixins\reset-text.less" />
+    <Content Include="res\less\bootstrap\mixins\resize.less" />
+    <Content Include="res\less\bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="res\less\bootstrap\mixins\size.less" />
+    <Content Include="res\less\bootstrap\mixins\tab-focus.less" />
+    <Content Include="res\less\bootstrap\mixins\table-row.less" />
+    <Content Include="res\less\bootstrap\mixins\text-emphasis.less" />
+    <Content Include="res\less\bootstrap\mixins\text-overflow.less" />
+    <Content Include="res\less\bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="res\less\bootstrap\modals.less" />
+    <Content Include="res\less\bootstrap\navbar.less" />
+    <Content Include="res\less\bootstrap\navs.less" />
+    <Content Include="res\less\bootstrap\normalize.less" />
+    <Content Include="res\less\bootstrap\pager.less" />
+    <Content Include="res\less\bootstrap\pagination.less" />
+    <Content Include="res\less\bootstrap\panels.less" />
+    <Content Include="res\less\bootstrap\popovers.less" />
+    <Content Include="res\less\bootstrap\print.less" />
+    <Content Include="res\less\bootstrap\progress-bars.less" />
+    <Content Include="res\less\bootstrap\responsive-embed.less" />
+    <Content Include="res\less\bootstrap\responsive-utilities.less" />
+    <Content Include="res\less\bootstrap\scaffolding.less" />
+    <Content Include="res\less\bootstrap\tables.less" />
+    <Content Include="res\less\bootstrap\theme.less" />
+    <Content Include="res\less\bootstrap\thumbnails.less" />
+    <Content Include="res\less\bootstrap\tooltip.less" />
+    <Content Include="res\less\bootstrap\type.less" />
+    <Content Include="res\less\bootstrap\utilities.less" />
+    <Content Include="res\less\bootstrap\variables.less" />
+    <Content Include="res\less\bootstrap\wells.less" />
+    <Content Include="res\less\components\_alert_note.less" />
+    <Content Include="res\less\components\_badge_label.less" />
+    <Content Include="res\less\components\_button.less" />
+    <Content Include="res\less\components\_carousel.less" />
+    <Content Include="res\less\components\_dropdown_menu.less" />
+    <Content Include="res\less\components\_form_elements.less" />
+    <Content Include="res\less\components\_jumbotron.less" />
+    <Content Include="res\less\components\_list_group.less" />
+    <Content Include="res\less\components\_list_group_item.less" />
+    <Content Include="res\less\components\_media_object.less" />
+    <Content Include="res\less\components\_modal.less" />
+    <Content Include="res\less\components\_navbar_mega_menu.less" />
+    <Content Include="res\less\components\_nav_tab.less" />
+    <Content Include="res\less\components\_pagination.less" />
+    <Content Include="res\less\components\_panel.less" />
+    <Content Include="res\less\components\_progress_bar.less" />
+    <Content Include="res\less\components\_table.less" />
+    <Content Include="res\less\components\_tooltip.less" />
+    <Content Include="res\less\components\_unlimited_nav_tabs.less" />
+    <Content Include="res\less\components\_well.less" />
+    <Content Include="res\less\pages\_page_coming_soon.less" />
+    <Content Include="res\less\pages\_page_email.less" />
+    <Content Include="res\less\pages\_page_email_detail.less" />
+    <Content Include="res\less\pages\_page_email_v2.less" />
+    <Content Include="res\less\pages\_page_error.less" />
+    <Content Include="res\less\pages\_page_gallery.less" />
+    <Content Include="res\less\pages\_page_invoice.less" />
+    <Content Include="res\less\pages\_page_login.less" />
+    <Content Include="res\less\pages\_page_login_register_v3.less" />
+    <Content Include="res\less\pages\_page_login_v2.less" />
+    <Content Include="res\less\pages\_page_search_results.less" />
+    <Content Include="res\less\pages\_page_timeline.less" />
+    <Content Include="res\less\pages\_page_vector_map.less" />
+    <Content Include="res\less\plugins\_bootstrap_select.less" />
+    <Content Include="res\less\plugins\_bootstrap_wizard.less" />
+    <Content Include="res\less\plugins\_ckeditor_wysihtml5.less" />
+    <Content Include="res\less\plugins\_colorpicker.less" />
+    <Content Include="res\less\plugins\_combobox.less" />
+    <Content Include="res\less\plugins\_flot_chart.less" />
+    <Content Include="res\less\plugins\_gritter_notification.less" />
+    <Content Include="res\less\plugins\_jquery_autocomplete.less" />
+    <Content Include="res\less\plugins\_jquery_draggable.less" />
+    <Content Include="res\less\plugins\_jstree.less" />
+    <Content Include="res\less\plugins\_jvectormap.less" />
+    <Content Include="res\less\plugins\_nvd3.less" />
+    <Content Include="res\less\plugins\_parsley.less" />
+    <Content Include="res\less\plugins\_powerange_slider.less" />
+    <Content Include="res\less\plugins\_select2.less" />
+    <Content Include="res\less\plugins\_slimscrollbar.less" />
+    <Content Include="res\less\plugins\_sparkline.less" />
+    <Content Include="res\less\plugins\_superbox.less" />
+    <Content Include="res\less\plugins\_tag_it.less" />
+    <Content Include="res\less\plugins\_timepicker.less" />
+    <Content Include="res\less\plugins\_typeahead.less" />
+    <Content Include="res\less\plugins\_wsyhtml5_sandbox.less" />
+    <Content Include="res\less\style.less" />
+    <Content Include="res\less\widget\_chat_list.less" />
+    <Content Include="res\less\widget\_media_message.less" />
+    <Content Include="res\less\widget\_registered_user_list.less" />
+    <Content Include="res\less\widget\_theme_panel.less" />
+    <Content Include="res\less\widget\_todolist.less" />
+    <Content Include="res\less\widget\_widget_chart.less" />
+    <Content Include="res\less\widget\_widget_stats.less" />
+    <Content Include="res\less\_component_list.less" />
+    <Content Include="res\less\_content.less" />
+    <Content Include="res\less\_content_flat_black.less" />
+    <Content Include="res\less\_footer.less" />
+    <Content Include="res\less\_header.less" />
+    <Content Include="res\less\_helper.less" />
+    <Content Include="res\less\_mixins.less" />
+    <Content Include="res\less\_pace_loader.less" />
+    <Content Include="res\less\_page_list.less" />
+    <Content Include="res\less\_page_setting.less" />
+    <Content Include="res\less\_plugin_list.less" />
+    <Content Include="res\less\_responsive.less" />
+    <Content Include="res\less\_sidebar.less" />
+    <Content Include="res\less\_top_menu.less" />
+    <Content Include="res\less\_variable.less" />
+    <Content Include="res\less\_widget_list.less" />
+    <Content Include="res\plugins\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="res\plugins\bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="res\plugins\bootstrap\css\bootstrap.css.map" />
+    <Content Include="res\plugins\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="res\plugins\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="res\plugins\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="res\plugins\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="res\plugins\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\css\common.scss" />
+    <Content Include="res\plugins\DataTables\extensions\Buttons\css\mixins.scss" />
+    <Content Include="res\plugins\DataTables\media\images\Sorting icons.psd" />
+    <Content Include="res\plugins\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="res\plugins\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="res\plugins\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="res\plugins\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="res\plugins\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="res\plugins\font-awesome\less\animated.less" />
+    <Content Include="res\plugins\font-awesome\less\bordered-pulled.less" />
+    <Content Include="res\plugins\font-awesome\less\core.less" />
+    <Content Include="res\plugins\font-awesome\less\fixed-width.less" />
+    <Content Include="res\plugins\font-awesome\less\font-awesome.less" />
+    <Content Include="res\plugins\font-awesome\less\icons.less" />
+    <Content Include="res\plugins\font-awesome\less\larger.less" />
+    <Content Include="res\plugins\font-awesome\less\list.less" />
+    <Content Include="res\plugins\font-awesome\less\mixins.less" />
+    <Content Include="res\plugins\font-awesome\less\path.less" />
+    <Content Include="res\plugins\font-awesome\less\rotated-flipped.less" />
+    <Content Include="res\plugins\font-awesome\less\screen-reader.less" />
+    <Content Include="res\plugins\font-awesome\less\stacked.less" />
+    <Content Include="res\plugins\font-awesome\less\variables.less" />
+    <Content Include="res\plugins\font-awesome\scss\font-awesome.scss" />
+    <Content Include="res\plugins\font-awesome\scss\_animated.scss" />
+    <Content Include="res\plugins\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="res\plugins\font-awesome\scss\_core.scss" />
+    <Content Include="res\plugins\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="res\plugins\font-awesome\scss\_icons.scss" />
+    <Content Include="res\plugins\font-awesome\scss\_larger.scss" />
+    <Content Include="res\plugins\font-awesome\scss\_list.scss" />
+    <Content Include="res\plugins\font-awesome\scss\_mixins.scss" />
+    <Content Include="res\plugins\font-awesome\scss\_path.scss" />
+    <Content Include="res\plugins\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="res\plugins\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="res\plugins\font-awesome\scss\_stacked.scss" />
+    <Content Include="res\plugins\font-awesome\scss\_variables.scss" />
+    <Content Include="res\plugins\jquery-ui\ui\.jshintrc" />
+    <Content Include="res\plugins\jquery\dist\jquery-migrate.min.map" />
+    <Content Include="res\plugins\pace\Gruntfile.coffee" />
+    <Content Include="res\plugins\pace\pace.coffee" />
+    <Content Include="res\plugins\pace\package.json" />
+    <Content Include="res_login\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="res_login\bootstrap\css\bootstrap-theme.min.css.map" />
+    <Content Include="res_login\bootstrap\css\bootstrap.css.map" />
+    <Content Include="res_login\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="res_login\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="res_login\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="res_login\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="res_login\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="res_login\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="res_login\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="res_login\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="res_login\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="res_login\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="res_login\font-awesome\less\animated.less" />
+    <Content Include="res_login\font-awesome\less\bordered-pulled.less" />
+    <Content Include="res_login\font-awesome\less\core.less" />
+    <Content Include="res_login\font-awesome\less\fixed-width.less" />
+    <Content Include="res_login\font-awesome\less\font-awesome.less" />
+    <Content Include="res_login\font-awesome\less\icons.less" />
+    <Content Include="res_login\font-awesome\less\larger.less" />
+    <Content Include="res_login\font-awesome\less\list.less" />
+    <Content Include="res_login\font-awesome\less\mixins.less" />
+    <Content Include="res_login\font-awesome\less\path.less" />
+    <Content Include="res_login\font-awesome\less\rotated-flipped.less" />
+    <Content Include="res_login\font-awesome\less\screen-reader.less" />
+    <Content Include="res_login\font-awesome\less\stacked.less" />
+    <Content Include="res_login\font-awesome\less\variables.less" />
+    <Content Include="res_login\font-awesome\scss\font-awesome.scss" />
+    <Content Include="res_login\font-awesome\scss\_animated.scss" />
+    <Content Include="res_login\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="res_login\font-awesome\scss\_core.scss" />
+    <Content Include="res_login\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="res_login\font-awesome\scss\_icons.scss" />
+    <Content Include="res_login\font-awesome\scss\_larger.scss" />
+    <Content Include="res_login\font-awesome\scss\_list.scss" />
+    <Content Include="res_login\font-awesome\scss\_mixins.scss" />
+    <Content Include="res_login\font-awesome\scss\_path.scss" />
+    <Content Include="res_login\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="res_login\font-awesome\scss\_screen-reader.scss" />
+    <Content Include="res_login\font-awesome\scss\_stacked.scss" />
+    <Content Include="res_login\font-awesome\scss\_variables.scss" />
+    <Content Include="Site.Master" />
+    <Content Include="Hubs\Scripts\jquery-3.3.1.min.map" />
+    <Content Include="Hubs\Scripts\jquery-3.3.1.slim.min.map" />
+    <None Include="Properties\PublishProfiles\cebselfcare - Web Deploy.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50861</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50861/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

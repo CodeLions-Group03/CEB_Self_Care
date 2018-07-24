@@ -1,0 +1,260 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="CEB.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=whatever" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="author" content="CodeLions @ UOR" />
+    <meta name="description" content="Final year group project by (sc/2015/9523, sc/2015/9536, sc/2015/9537, sc/2015/9538, sc/2015/9541)" />
+    <meta name="keywords" content="ceb, ceylon, electricity, board, dashboard, live, bill, usage" />
+
+    <title>CEB Self Care</title>
+
+    <%-- CSS --%>
+    <link href="../res/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css" rel="stylesheet" />
+    <link href="../res/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../res/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../res/plugins/DataTables/media/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+    <link href="../res/plugins/DataTables/extensions/Buttons/css/buttons.bootstrap.min.css" rel="stylesheet" />
+    <link href="../res/plugins/DataTables/extensions/Responsive/css/responsive.bootstrap.min.css" rel="stylesheet" />
+    <link href="../res/css/animate.css" rel="stylesheet" />
+    <link href="../res/css/style.css" rel="stylesheet" />
+    <link href="../res/css/style-responsive.css" rel="stylesheet" />
+    <link href="../res/css/theme.css" rel="stylesheet" id="theme" />
+
+    <%-- JS --%>
+    <script src="../res/plugins/jquery/jquery-1.9.1.min.js"></script>
+    <script src="../res/plugins/pace/pace.js"></script>
+
+    <%-- DATE/TIME --%>
+    <script src="../res/js/DateTime.js"></script>
+
+    <%-- HIGHCHARTS.com --%>
+    <script src="../res/flot/highcharts.js"></script>
+    <script src="../res/flot/highcharts-more.js"></script>
+    <script src="../res/flot/modules/exporting.js"></script>
+    <script src="../res/flot/modules/export-data.js"></script>
+</head>
+
+<body>
+    <%-- begin #page-loader --%>
+    <div id="page-loader" class="fade in"><span class="spinner"></span></div>
+    <%-- end #page-loader --%>
+
+    <%-- begin #page-container --%>
+    <div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+
+        <%-- begin #header --%>
+        <div id="header" class="header navbar navbar-default navbar-fixed-top" style="opacity: 0.95">
+            <%-- begin container-fluid --%>
+            <div class="container-fluid">
+                <%-- begin mobile sidebar expand / collapse button --%>
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="../index.aspx"><i class="fa fa-desktop"></i> CEB Self Care</a>
+                    <button type="button" class="navbar-toggle" data-click="sidebar-toggled" style="background-color: #C0C0C0">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <%-- end mobile sidebar expand / collapse button --%>
+                <%-- begin header profile right --%>
+                <ul class="nav navbar-nav navbar-right">
+                    <%-- profile name --%>
+                    <li class="dropdown navbar-user"><a href="../Profile.aspx">
+                        <asp:Image ID="profilePicture" runat="server" /><asp:Label ID="LabelUsername" runat="server" Text="" ForeColor="White"></asp:Label></a></li>
+                    <%-- end profile name --%>
+                    <%-- logout --%>
+                    <li><a href="../Logout.aspx" runat="server">
+                        <asp:Label ID="LabelLogout" runat="server" Text="( Logout )" ForeColor="White"></asp:Label>
+                    </a></li>
+                    <%-- end logout --%>
+                </ul>
+                <%-- end header profile right --%>
+            </div>
+            <%-- end container-fluid --%>
+        </div>
+        <%-- end #header --%>
+
+        <%-- begin #sidebar --%>
+        <div id="sidebar" class="sidebar">
+            <%-- begin sidebar scrollbar --%>
+            <div data-scrollbar="true" data-height="100%">
+                <%-- begin sidebar image --%>
+                <ul class="nav">
+                    <li class="image">
+                        <img src="../res/images/CEB.png" style="width: 100%; height: auto" />
+                    </li>
+                </ul>
+                <%-- end sidebar image --%>
+                <%-- begin sidebar nav --%>
+                <br />
+                <ul class="nav">
+                    <li id="dashboard" class="has-sub active" runat="server">
+                        <a href="../Dashboard.aspx" data-toggle="ajax"><i class="fa fa-laptop"></i><span>Dashboard</span></a>
+                    </li>
+                    <li id="usage" class="has-sub" runat="server">
+                        <a href="../Usage.aspx" data-toggle="ajax"><i class="fa fa-bar-chart-o"></i><span>My Usage</span></a>
+                    </li>
+                    <li id="bill" class="has-sub" runat="server">
+                        <a href="../Bill.aspx" data-toggle="ajax"><i class="fa fa-money"></i><span>My Bill</span></a>
+                    </li>
+                    <li id="settings" class="has-sub" runat="server">
+                        <a href="../Settings.aspx" data-toggle="ajax"><i class="fa fa-cog"></i><span>Settings</span></a>
+                    </li>
+                    <li id="contacts" class="has-sub" runat="server">
+                        <a href="../Contacts.aspx" data-toggle="ajax"><i class="fa fa-phone"></i><span>Contact Us</span></a>
+                    </li>
+                    <li id="about" class="has-sub" runat="server">
+                        <a href="../About.aspx" data-toggle="ajax"><i class="fa fa-info-circle"></i><span>About Us</span></a>
+                    </li>
+                    <%-- begin sidebar minify button --%>
+                    <a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a>
+                    <%-- end sidebar minify button --%>
+                </ul>
+                <%-- end sidebar nav --%>
+            </div>
+            <%-- end sidebar scrollbar --%>
+        </div>
+        <div class="sidebar-bg"></div>
+        <%-- end #sidebar --%>
+
+        <form id="form1" runat="server">
+            <asp:ScriptManager ID="ScriptManagerMain" runat="server"></asp:ScriptManager>
+
+            <%-- begin metal boxes --%>
+            <div id="content1" class="content">
+                <%-- date-time --%>
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget widget-stats bg-purple">
+                        <div class="stats-icon"><i class="fa fa-clock-o"></i></div>
+                        <div class="stats-info">
+                            <p id="time"></p>
+                            <h4 id="day"></h4>
+                        </div>
+                        <div class="stats-link">
+                            <a><i id="date"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <%-- notices --%>
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget widget-stats bg-red">
+                        <div class="stats-icon"><i class="fa fa-bell"></i></div>
+                        <div class="stats-info">
+                            <p>Notices</p>
+                            <div>
+                                <asp:UpdatePanel ID="UpdatePanelNotice" runat="server">
+                                    <ContentTemplate>
+                                        <asp:Timer ID="TimerNotice" runat="server" Interval="3000" OnTick="NoticeUpdate"></asp:Timer>
+                                        <asp:Label ID="LabelNotice" runat="server" Font-Size="Small" ForeColor="White" Font-Bold="True" Text="0 New Notices(s)"></asp:Label>
+                                        <br />
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
+                        </div>
+                        <div class="stats-link">
+                            <a href="../Notice.aspx" data-toggle="ajax">View All... <i class="fa fa-arrow-circle-o-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <%-- messages --%>
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget widget-stats bg-blue">
+                        <div class="stats-icon"><i class="fa fa-envelope"></i></div>
+                        <div class="stats-info">
+                            <p>Messages</p>
+                            <div>
+                                <asp:UpdatePanel ID="UpdatePanelInbox" runat="server">
+                                    <ContentTemplate>
+                                        <asp:Timer ID="TimerInbox" runat="server" Interval="3000" OnTick="InboxUpdate"></asp:Timer>
+                                        <asp:Label ID="LabelInbox" runat="server" Font-Size="Small" ForeColor="White" Font-Bold="True" Text="0 New Message(s)"></asp:Label>
+                                        <br />
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
+                        </div>
+                        <div class="stats-link">
+                            <a id="link_inbox" href="../Inbox.aspx" data-toggle="ajax">View All... <i class="fa fa-arrow-circle-o-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <%-- faq --%>
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget widget-stats bg-orange">
+                        <div class="stats-icon"><i class="fa fa-comment"></i></div>
+                        <div class="stats-info">
+                            <p>FAQ</p>
+                            <h4>.</h4>
+                        </div>
+                        <div class="stats-link">
+                            <a href="../FAQ.aspx">View All... <i class="fa fa-arrow-circle-o-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <%-- end metal boxes --%>
+
+            <%-- content --%>
+            <div id="content2" class="content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </form>
+        <div id="content3" class="content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server"></asp:ContentPlaceHolder>
+        </div>
+        <%-- end content --%>
+
+        <%-- begin scroll to top btn --%>
+        <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+        <%-- end scroll to top btn --%>
+    </div>
+    <%-- end page container --%>
+
+    <%--page level JS --%>
+    <script src="../res/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+    <script src="../res/plugins/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+    <script src="../res/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../res/plugins/slimscroll/jquery.slimscroll.js"></script>
+
+    <%-- page level JS --%>
+    <script src="../res/js/apps.js"></script>
+    <script>
+        $(document).ready(function () {
+            App.init();
+        });
+    </script>
+    <script>
+        $.getScript('../res/plugins/DataTables/media/js/jquery.dataTables.js').done(function () {
+            $.getScript('../res/plugins/DataTables/media/js/dataTables.bootstrap.min.js').done(function () {
+                $.getScript('../res/plugins/DataTables/extensions/Buttons/js/dataTables.buttons.min.js').done(function () {
+                    $.getScript('../res/plugins/DataTables/extensions/Buttons/js/buttons.bootstrap.min.js').done(function () {
+                        $.getScript('../res/plugins/DataTables/extensions/Buttons/js/buttons.flash.min.js').done(function () {
+                            $.getScript('../res/plugins/DataTables/extensions/Buttons/js/jszip.min.js').done(function () {
+                                $.getScript('../res/plugins/DataTables/extensions/Buttons/js/pdfmake.min.js').done(function () {
+                                    $.getScript('../res/plugins/DataTables/extensions/Buttons/js/vfs_fonts.min.js').done(function () {
+                                        $.getScript('../res/plugins/DataTables/extensions/Buttons/js/buttons.html5.min.js').done(function () {
+                                            $.getScript('../res/plugins/DataTables/extensions/Buttons/js/buttons.print.min.js').done(function () {
+                                                $.getScript('../res/plugins/DataTables/extensions/Responsive/js/dataTables.responsive.min.js').done(function () {
+                                                    $.getScript('../res/js/table-manage-buttons.demo.min.js').done(function () {
+                                                        TableManageButtons.init();
+                                                    });
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
